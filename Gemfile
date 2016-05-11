@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
+ruby "2.3.0"
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
 # I removed the version from rails, to make life easier. original lost.
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use sqlite3 as the database for Active Record --- i removed it, placed with group development. 
+
 # Use SCSS for stylesheets
 gem 'sass-rails'
 # line above was edited. original was --- gem 'sass-rails', '~> 4.0.5' 
@@ -28,6 +29,15 @@ gem 'bootstrap-sass', '~> 3.3.6'
 # Line above i added.
 gem 'paperclip', github: 'thoughtbot/paperclip'
 # Line above i added.
+
+group :production do
+    gem 'pg'
+    gem 'rails_12factor'
+end
+
+group :development, :test do
+    gem 'sqlite3'
+end
 
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
